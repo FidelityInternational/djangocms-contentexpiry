@@ -15,7 +15,7 @@ setup(
     include_package_data=True,
     version=djangocms_contentexpiry.__version__,
     description=djangocms_contentexpiry.__doc__,
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     classifiers=[
         'Framework :: Django',
         'Intended Audience :: Developers',
