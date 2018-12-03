@@ -16,13 +16,13 @@ module.exports = function(opts) {
         watch: !!opts.watch,
         entry: {
             // CMS frontend
-            Internalsearch: PROJECT_PATH.js + '/base.js',
+            Contentexpiry: PROJECT_PATH.js + '/base.js',
         },
         output: {
             path: PROJECT_PATH.js + '/dist/',
-            filename: 'bundle.[name].min.js',
+            filename: 'bundle.[name].min.js'
             chunkFilename: 'bundle.[name].min.js',
-            jsonpFunction: 'InternalSearchWebpackJsonp',
+            jsonpFunction: 'ContentExpiryWebpackJsonp',
         },
         plugins: [],
         externals: {
