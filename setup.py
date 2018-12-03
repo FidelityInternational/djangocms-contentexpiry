@@ -24,8 +24,7 @@ setup(
         'Topic :: Software Development'
     ],
     install_requires=INSTALL_REQUIREMENTS,
-    author='Divio AG',
-    author_email='info@divio.ch',
+    author='Fidelity International',
     url='https://github.com/fidelityInternational/djangocms-contentexpiry',
     license='BSD',
     test_suite='tests.settings.run',
