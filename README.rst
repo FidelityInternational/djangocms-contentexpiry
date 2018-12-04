@@ -1,6 +1,6 @@
-# djangocms-contentexpiry
-
-
+***********************
+djangocms-contentexpiry
+***********************
 Installation
 ============
 
