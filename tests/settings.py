@@ -1,5 +1,6 @@
 HELPER_SETTINGS = {
     'INSTALLED_APPS': [
+        'djangocms_versioning',
         'djangocms_contentexpiry',
         'djangocms_contentexpiry.test_utils.app_1',
         'djangocms_contentexpiry.test_utils.app_2',

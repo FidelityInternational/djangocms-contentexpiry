@@ -20,7 +20,7 @@ class ExpiryChangeList(ChangeList):
 class ContentExpiryAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'content_type', 'activation_date', 'expiry_date',
-        'modified_by')
+        'modified_by', 'version_status')
     list_filter = (
         ('activation_date', DateRangeFilter),
         ('expiry_date', DateRangeFilter),
@@ -30,6 +30,9 @@ class ContentExpiryAdmin(admin.ModelAdmin):
 
     def title(self, obj):
         return str(obj.content)
+
+    def version_status(self, obj):
+        return obj.content.versions.get().get_state_display()
 
     def get_changelist(self, request, **kwargs):
         return ExpiryChangeList

@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 
 from djangocms_contentexpiry.admin import ContentExpiryAdmin, ExpiryChangeList
 from djangocms_contentexpiry.models import ContentExpiry
+from djangocms_versioning.constants import UNPUBLISHED
 
 from .factories import PageContentExpiryFactory, TestModel1ExpiryFactory
 
@@ -14,6 +15,11 @@ class ModelAdminMethodTestCase(TestCase):
         obj = PageContentExpiryFactory()
         title = ContentExpiryAdmin.title(None, obj)
         self.assertEqual(title, str(obj.content))
+
+    def test_version_status(self):
+        obj = PageContentExpiryFactory(content__version__state=UNPUBLISHED)
+        version_status = ContentExpiryAdmin.version_status(None, obj)
+        self.assertEqual(version_status, 'Unpublished')
 
 
 class ExpiryChangeListTestCase(TestCase):
@@ -45,5 +51,7 @@ class ExpiryChangeListTestCase(TestCase):
         model1_expiry = TestModel1ExpiryFactory()
         actual_url = self._get_changelist().url_for_result(model1_expiry)
         expected_url = reverse(
-            'admin:app_1_testmodel1_change', args=(str(model1_expiry.content.id)))
+            'admin:app_1_testmodel1_change',
+            args=(str(model1_expiry.content.id))
+        )
         self.assertEqual(actual_url, expected_url)
