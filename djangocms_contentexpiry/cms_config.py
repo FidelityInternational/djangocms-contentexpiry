@@ -12,7 +12,8 @@ class ContentExpiryCMSExtension(CMSAppExtension):
 
     def configure_app(self, cms_config):
         if hasattr(cms_config, 'contentexpiry_models'):
-            contentexpiry_app_models = getattr(cms_config, 'contentexpiry_models')
+            contentexpiry_app_models = getattr(
+                cms_config, 'contentexpiry_models')
             if isinstance(contentexpiry_app_models, Iterable):
                 self.contentexpiry_apps_models.extend(contentexpiry_app_models)
             else:

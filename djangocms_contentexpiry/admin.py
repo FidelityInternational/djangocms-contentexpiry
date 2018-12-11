@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.admin.views.main import ChangeList
 from django.core.urlresolvers import reverse
 
+from rangefilter.filter import DateRangeFilter
+
 from .models import ContentExpiry
 
 
@@ -19,7 +21,12 @@ class ContentExpiryAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'content_type', 'activation_date', 'expiry_date',
         'modified_by')
-    list_filter = ('content_type', 'modified_by')
+    list_filter = (
+        ('activation_date', DateRangeFilter),
+        ('expiry_date', DateRangeFilter),
+        'content_type',
+        'modified_by',
+    )
 
     def title(self, obj):
         return str(obj.content)
