@@ -5,7 +5,8 @@ import djangocms_contentexpiry
 
 INSTALL_REQUIREMENTS = [
     'Django>=1.11,<2.0',
-    'django-cms>=3.5.0'
+    'django-cms>=3.5.0',
+    'django-admin-rangefilter>=0.3.10'
     ]
 
 

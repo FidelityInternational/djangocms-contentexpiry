@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -32,3 +32,7 @@ class ContentExpiry(models.Model):
 
     class Meta:
         unique_together = ("content_type", "object_id")
+        verbose_name_plural = _("content expiry")
+
+    def __str__(self):
+        return str(self.content)
